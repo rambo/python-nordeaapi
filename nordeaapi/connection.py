@@ -22,6 +22,7 @@ CONNECTION_MAP = {}
 class Connection(object):
     base_url_fmt = "https://api.nordeaopenbanking.com/v1/"
     session = None
+    auth_type = 'authenticated-user-full-access'
 
     @classmethod
     def singleton(self, clientid, authkey):
@@ -42,10 +43,12 @@ class Connection(object):
             self.session = requests.Session()
             self.session.headers.update({
                 'Content-Type': 'application/json',
-                'Authorization': 'Token %s' % self.key
+                'x-ibm-client-secret': self.key,
+                'x-ibm-client-id': self.clientid,
+                'authorization': 'Bearer %s' % self.auth_type
             })
         # 0.4.10 does not yet support this method, add it when new versio comes to pypi
-        # self.session.remove_expired_responses()
+        self.session.remove_expired_responses()
 
     def make_get(self, url, params={}):
         """Make a GET request"""
