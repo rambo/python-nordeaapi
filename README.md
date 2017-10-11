@@ -1,10 +1,10 @@
-# python-holviapi
+# python-nordeaapi
 
-Pythonic API for [Holvi][holvi]s JSON-REST API
+Pythonic API for [Nordea Open Banking][nob] JSON-REST API
 
-[holvi]: https://about.holvi.com/en/
+[nob]: https://nordeaopenbanking.com/
 
-## NOTE
+## NOTE: Caveat emptor
 
-  1. Holvi APIs are in closed beta at the moment, everything can and will change.
-  2. I cannot help you with getting access to the beta API.
+This is very much work in progess at the moment, everything can change, I might
+force-push rewritten history etc.
